@@ -1,0 +1,17 @@
+@reference "tailwindcss";
+
+.app {
+  @apply flex h-screen w-screen justify-center items-center 
+}
+
+.form {
+  @apply flex flex-col gap-4 
+}
+
+.field {
+  @apply flex flex-col gap-1.5
+}
+
+.input-field {
+  @apply w-2xs md:w-lg p-2 border border-white rounded-md
+}
