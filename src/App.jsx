@@ -1,31 +1,38 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Login, Register, Admin, User } from './pages'
 import './App.css'
-import AdminRouterProtector from './RouterProtectors/AdminRouteProtector'
-import UserRouterProtector from './RouterProtectors/UserRouteProtector'
-
+import RouterProtector from './RouterProtectors/RouteProtector'
+import { RegisterPage, AdminPage, LoginPage, UserPage } from './pages'
+import Employees from './multiple-fields/Employees'
 function App() {
 
   const routes = createBrowserRouter([
     {
       path : '/',
-      element : <Login />
+      element : <LoginPage />
     },
     {
       path : '/register',
-      element : <Register />
+      element : <RegisterPage />
     },
     {
       path : 'admin',
-      element : <AdminRouterProtector><Admin /></AdminRouterProtector>
+      element : <>
+      <RouterProtector allowedRoles={["admin"]}>
+        <AdminPage />
+        </RouterProtector>
+      </>
     },
     {
       path : 'user',
-      element : <UserRouterProtector><User /></UserRouterProtector>
+      element : <>
+      <RouterProtector allowedRoles={["user"]}>
+        <UserPage />
+      </RouterProtector>
+      </>
     }
   ])
 
-  return <RouterProvider router={routes}/>
+  return <Employees />
 }
 
 export default App

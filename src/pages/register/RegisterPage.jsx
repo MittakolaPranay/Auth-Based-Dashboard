@@ -1,7 +1,8 @@
 import { Form, Formik, Field } from "formik";
 import { NavLink } from "react-router-dom";
-import { registerFormSchema } from "./RegisterFormValidtion";
-function Register() {
+import { registerFormSchema } from "./RegisterFormValidation";
+
+function RegisterPage() {
     return <div className="app">
         <Formik 
         initialValues={{
@@ -10,7 +11,7 @@ function Register() {
             password : '',
             confirm_password : ''
         }}
-        validationSchema={registerFormSchema}
+        validationSchema={ registerFormSchema}
         onSubmit={(values, { resetForm }) => {
             console.log(values);
             resetForm();
@@ -101,4 +102,4 @@ function Register() {
 
 }
 
-export default Register;
+export default RegisterPage;

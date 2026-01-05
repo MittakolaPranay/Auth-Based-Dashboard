@@ -5,7 +5,7 @@ import { callLoginAPI } from "../../services/callLoginAPI";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function LoginPage() {
 
     const { login } = useAuth();
     const navigate = useNavigate();
@@ -99,4 +99,4 @@ function Login() {
     </div>
 }
 
-export default Login;
+export default LoginPage;

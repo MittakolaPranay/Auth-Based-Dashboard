@@ -1,5 +1,5 @@
 
-function Admin() {
+function AdminPage() {
   return (
     <div className="min-h-screen w-screen bg-black p-6 text-gray-100">
       <h1 className="mb-6 text-2xl font-bold text-white">
@@ -42,4 +42,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default AdminPage;

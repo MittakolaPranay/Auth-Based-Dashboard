@@ -1,12 +1,11 @@
-
-import Login from "./Login/Login";
-import Register from "./Register/Register";
-import User from "./User/User";
-import Admin from "./Admin/Admin";
+import UserPage from "./user/UserPage";
+import RegisterPage from "./register/RegisterPage";
+import LoginPage from "./login/LoginPage";
+import AdminPage from "./admin/AdminPage";
 
 export {
-    Login,
-    Register,
-    User,
-    Admin
+    UserPage,
+    RegisterPage,
+    LoginPage,
+    AdminPage
 }
