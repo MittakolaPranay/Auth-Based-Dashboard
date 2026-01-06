@@ -1,7 +1,7 @@
 @reference "tailwindcss";
 
 .app {
-  @apply flex h-screen w-screen justify-center items-center 
+  @apply flex h-screen w-screen justify-center items-center flex-col
 }
 
 .form {

@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import RouterProtector from './RouterProtectors/RouteProtector'
 import { RegisterPage, AdminPage, LoginPage, UserPage } from './pages'
-import Employees from './multiple-fields/Employees'
+import UsersList from './pages/admin/UsersList'
+
 function App() {
 
   const routes = createBrowserRouter([
@@ -20,7 +21,13 @@ function App() {
       <RouterProtector allowedRoles={["admin"]}>
         <AdminPage />
         </RouterProtector>
-      </>
+      </>,
+      children : [
+        {
+          path : "users",
+          element : <UsersList />
+        }
+      ]
     },
     {
       path : 'user',
@@ -28,11 +35,11 @@ function App() {
       <RouterProtector allowedRoles={["user"]}>
         <UserPage />
       </RouterProtector>
-      </>
+      </>,
     }
   ])
 
-  return <Employees />
+  return <RouterProvider router={routes}/>
 }
 
 export default App

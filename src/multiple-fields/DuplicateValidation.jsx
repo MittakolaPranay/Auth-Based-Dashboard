@@ -18,9 +18,6 @@ export const validateDuplicates = ( values ) => {
                 employeeName: "Duplicate employee name",
             }
 
-            errors.employees[nameMap[name]] = {
-                employeeName: "Duplicate employee name"
-            }
         } else {
             nameMap[name] = index;
         }

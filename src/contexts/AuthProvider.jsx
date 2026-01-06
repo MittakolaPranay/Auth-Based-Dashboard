@@ -3,50 +3,53 @@ import AuthContext from "./AuthContext";
 
 function AuthProvider({children}){
 
-    const [auth, setAuth] = useState({
-        user : null,
-        loading : true
-    })
+    const [user, setUser] = useState(null);
+    const [token, setToken] = useState(null);
+    const [loading,setLoading] = useState(true);
+    const [isAuth, setIsAuth] = useState(false);
   
     useEffect(() => {
-        const storedData = JSON.parse(localStorage.getItem("auth"));
+        const storedData = JSON.parse(localStorage.getItem("user"));
+        const storedToken = JSON.parse(localStorage.getItem("token"));
+    
+        if(storedData && storedToken) {
+            setUser(storedData);
+            setToken(storedToken);
+            setIsAuth(true);
+        } 
 
-        if(storedData) {
-            setAuth({
-                user : storedData,
-                loading : false
-            })
-        } else {
-            setAuth({
-                user : null,
-                loading : false
-            })
-        }
+        setLoading(false)
     },[]);
     
 
-    const login = (userInfo) => {
-        localStorage.setItem("auth",JSON.stringify(userInfo));
-        setAuth({
-            user : userInfo,
-            loading : false
-        })
+    const login = (data) => {
+        const user = data.user;
+        const token = data.token;
+
+        setUser(user);
+        setToken(token);
+        setIsAuth(true);
+
+        localStorage.setItem("user",JSON.stringify(user));
+        localStorage.setItem("token",JSON.stringify(token))
     }
 
     const logout = () => {
-    
-        localStorage.removeItem("auth");
 
-        setAuth({
-            user : null,
-            loading : false
-        })
+        setUser(null);
+        setToken(null);
+        setIsAuth(false);
+
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
     }
 
     const values = {
-        auth,
-        isAuthenticated : !!auth.user,
-        loading : auth.loading,
+
+        user,
+        token,
+        isAuth,
+        loading,
         login,
         logout
     }

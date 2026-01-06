@@ -3,7 +3,7 @@ import { Validationschema } from "./Validation";
 import { validateDuplicates } from "./DuplicateValidation";
 
 function Employees() {
-    return <Formik
+    return <Formik 
     initialValues={{
         employees : [
             { 
@@ -20,7 +20,7 @@ function Employees() {
     >
         {
             ({ values, errors, touched }) => (
-                <Form>
+                <Form className="h-screen w-screen flex justify-center items-center flex-col ">
                     <h1>Multiple Employees</h1>
                     <FieldArray name="employees">
                         {

@@ -26,8 +26,6 @@ src/
 ├── components/
 │   |── Loading.jsx
 │   
-│   
-│
 ├── contexts/
 │   └── AuthContext.jsx
 │   └── AuthProvider.jsx

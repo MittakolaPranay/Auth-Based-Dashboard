@@ -1,44 +1,41 @@
 import { Formik, Form, Field } from "formik";
 import { NavLink } from "react-router-dom";
 import { loginFormSchema } from "./LoginFormValidations";
-import { callLoginAPI } from "../../services/callLoginAPI";
+import { loginService } from "../../services/authService";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function LoginPage() {
 
     const { login } = useAuth();
     const navigate = useNavigate();
+    const [status, setStatus] = useState(null);
 
-
+    const initialValues = {
+        username : '',
+        password : '',
+        remember : false
+    }
     return <div  className="app">
         <Formik
-        initialValues={{
-            username : '',
-            password : '',
-            remember : false
-        }}
+        initialValues={initialValues}
         validationSchema={loginFormSchema}
         onSubmit={ async (values, { resetForm }) => {
+            try {
+                const response = await loginService(values);
+                
+                login(response);
 
-            const response = await callLoginAPI(values);
+                if(response.user.role === "admin") navigate("/admin");
+                else navigate("/user");
 
-            if(response.status) {
-                login({
-                    username : response.username,
-                    email : response.email,
-                    role : response.role,
-                });
-                if(response.role === "admin") {
-                    navigate("/admin")
-                } else if (response.role === "user") {
-                    navigate("/user");
-                }
-            } else {
-                alert(response.message);
+                resetForm();
+            } catch (error) {
+                setStatus(
+                    error.response?.data?.message || "Login failed"
+                )
             }
-
-            resetForm();
         }}
         >
             {
@@ -96,6 +93,8 @@ function LoginPage() {
                 )
             }
         </Formik>
+
+        {status && <p className="text-red-800">{status}</p>}
     </div>
 }
 

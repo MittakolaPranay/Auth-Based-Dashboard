@@ -5,14 +5,14 @@ import PageLoader from "../components/PageLoader";
 
 function RouterProtector({ allowedRoles, children }) {
 
-    const { auth, isAuthenticated, loading } = useAuth();
+    const { user, isAuth, loading } = useAuth();
 
 
     if(loading) return <PageLoader/>
 
-    if(!isAuthenticated) return <Navigate to={"/"}/>
+    if(!isAuth) return <Navigate to={"/"}/>
 
-    if(!allowedRoles.includes(auth.user.role)) return <Navigate to={"/unauthorized"}/>
+    if(!allowedRoles.includes(user.role)) return <Navigate to={"/unauthorized"}/>
 
     return children
 }

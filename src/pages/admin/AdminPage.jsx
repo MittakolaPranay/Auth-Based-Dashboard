@@ -1,5 +1,10 @@
+import {  Outlet, useNavigate } from "react-router-dom";
+
 
 function AdminPage() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen w-screen bg-black p-6 text-gray-100">
       <h1 className="mb-6 text-2xl font-bold text-white">
@@ -29,15 +34,17 @@ function AdminPage() {
         </h2>
 
         <div className="flex gap-3">
-          <button className="rounded bg-blue-600 px-4 py-2 text-sm font-medium hover:bg-blue-700">
-            Add User
-          </button>
 
           <button className="rounded bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700">
             Delete User
           </button>
+
+          <button className="rounded bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700" onClick={() => navigate("/admin/users")}>
+            See All Users
+          </button>
         </div>
       </div>
+      <Outlet />
     </div>
   );
 }
