@@ -44,14 +44,19 @@ function AuthProvider({children}){
         localStorage.removeItem("token");
     }
 
-    const values = {
+    const editUserProfile = (user) => {
+        setUser(user);
+        localStorage.setItem("user",JSON.stringify(user));
+    }
 
+    const values = {
         user,
         token,
         isAuth,
         loading,
         login,
-        logout
+        logout,
+        editUserProfile
     }
 
     return <AuthContext.Provider value={values}>

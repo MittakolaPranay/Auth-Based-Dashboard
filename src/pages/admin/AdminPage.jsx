@@ -35,12 +35,18 @@ function AdminPage() {
 
         <div className="flex gap-3">
 
-          <button className="rounded bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700">
+          <button className="rounded bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700" onClick={() => {
+            navigate("/admin/delete");
+          }}>
             Delete User
           </button>
 
           <button className="rounded bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700" onClick={() => navigate("/admin/users")}>
             See All Users
+          </button>
+
+          <button className="rounded bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700" onClick={() => navigate("/admin/update")}>
+            Update Profile
           </button>
         </div>
       </div>

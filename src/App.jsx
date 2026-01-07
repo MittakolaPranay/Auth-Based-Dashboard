@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import RouterProtector from './RouterProtectors/RouteProtector'
-import { RegisterPage, AdminPage, LoginPage, UserPage } from './pages'
-import UsersList from './pages/admin/UsersList'
+import { RegisterPage, AdminPage, LoginPage, UserPage, UsersList, DeleteUser, UserDetails, EditDetails, EditAdminDetails } from './pages'
+
+
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
       element : <RegisterPage />
     },
     {
-      path : 'admin',
+      path : '/admin',
       element : <>
       <RouterProtector allowedRoles={["admin"]}>
         <AdminPage />
@@ -26,16 +27,42 @@ function App() {
         {
           path : "users",
           element : <UsersList />
+        },
+        {
+          path : "delete",
+          element : <DeleteUser />
         }
       ]
     },
     {
-      path : 'user',
+      path : '/user',
       element : <>
       <RouterProtector allowedRoles={["user"]}>
         <UserPage />
       </RouterProtector>
       </>,
+      children : [
+        {
+          path : "details",
+          element : <UserDetails />
+        }
+      ]
+    },
+    {
+      path : '/user/update',
+      element : <>
+      <RouterProtector allowedRoles={["user"]}>
+        <EditDetails />
+      </RouterProtector>
+      </>
+    },
+    {
+      path : '/admin/update',
+      element : <>
+      <RouterProtector allowedRoles={["admin"]}>
+        <EditAdminDetails />
+      </RouterProtector>
+      </>
     }
   ])
 
