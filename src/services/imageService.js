@@ -1,0 +1,8 @@
+import api from "./api";
+
+export const uploadAvatar = async (avatar) => {
+    const formData = new FormData();
+    formData.append("avatar",avatar);
+    const response = await api.post("/upload",formData);
+    return response.data;
+}

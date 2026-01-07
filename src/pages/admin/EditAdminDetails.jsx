@@ -24,7 +24,7 @@ function EditAdminDetails() {
 
             try {
                 const response = await editAdmin(user.id,values);
-                console.log(response.user);
+                
                 editUserProfile(response.user);
                 alert(response.message);
                 navigate("/admin");

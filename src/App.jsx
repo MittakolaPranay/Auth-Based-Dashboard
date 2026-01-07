@@ -3,6 +3,8 @@ import './App.css'
 import RouterProtector from './RouterProtectors/RouteProtector'
 import { RegisterPage, AdminPage, LoginPage, UserPage, UsersList, DeleteUser, UserDetails, EditDetails, EditAdminDetails } from './pages'
 
+import Avatar from './multi-parts/Avatar'
+
 
 
 function App() {

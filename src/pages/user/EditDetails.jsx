@@ -2,7 +2,6 @@ import { Form, Formik, Field } from "formik";
 import { useAuth } from "../../hooks/useAuth";
 import { editUser } from "../../services/usersService";
 import { useNavigate } from "react-router-dom";
-import { object } from "yup";
 function EditDetails() {
 
     const { user, editUserProfile } = useAuth();
@@ -35,7 +34,6 @@ function EditDetails() {
 
             try {
                 const response = await editUser(user.id,request);
-                console.log(response.user);
                 editUserProfile(response.user);
                 alert(response.message);
                 navigate("/user");

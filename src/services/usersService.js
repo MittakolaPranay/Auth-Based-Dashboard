@@ -11,13 +11,13 @@ export const getUser = async (id) => {
 }
 
 export const editUser = async (id,data) => {
-    console.log(data);
+    
     const response = await api.patch(`/users/${id}`,data)
     return response.data;
 }
 
 export const editAdmin = async (id, data) => {
-    console.log(data);
+    
     const response = await api.put(`/users/${id}`,data);
     return response.data;
 }
