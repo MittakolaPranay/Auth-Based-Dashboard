@@ -4,6 +4,7 @@ import RouterProtector from './RouterProtectors/RouteProtector'
 import { RegisterPage, AdminPage, LoginPage, UserPage, UsersList, DeleteUser, UserDetails, EditDetails, EditAdminDetails } from './pages'
 
 import Avatar from './multi-parts/Avatar'
+import Pagination from './pagination/Pagination'
 
 
 
@@ -68,7 +69,7 @@ function App() {
     }
   ])
 
-  return <RouterProvider router={routes}/>
+  return <Pagination />
 }
 
 export default App

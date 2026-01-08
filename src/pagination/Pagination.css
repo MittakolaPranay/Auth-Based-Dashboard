@@ -1,0 +1,12 @@
+@reference "tailwindcss";
+
+.pagination-page {
+    @apply h-full flex flex-col gap-4 justify-center items-center
+}
+
+.products-container {
+    @apply w-full grid grid-cols-3 md:grid-cols-5 gap-4
+}
+.active {
+    @apply bg-pink-500
+}

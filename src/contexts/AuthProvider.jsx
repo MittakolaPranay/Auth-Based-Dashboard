@@ -13,9 +13,11 @@ function AuthProvider({children}){
         const storedToken = JSON.parse(localStorage.getItem("token"));
     
         if(storedData && storedToken) {
+
             setUser(storedData);
             setToken(storedToken);
             setIsAuth(true);
+            
         } 
 
         setLoading(false)

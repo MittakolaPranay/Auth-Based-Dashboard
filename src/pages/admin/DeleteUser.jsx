@@ -18,7 +18,6 @@ function DeleteUser() {
                 
                 setUsers(response);
 
-
             } catch (error) {
                 setStatus(
                     error?.response?.data?.message || "Can't fetch Users"
@@ -47,7 +46,7 @@ function DeleteUser() {
             users ? 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2">
                 {
-                    users.map((user,index) => {
+                    users.map((user) => {
                         return <UserCard key={user.id} user={user} onDelete={onDelete}/>
                     })
                 }
