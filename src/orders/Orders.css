@@ -1,0 +1,9 @@
+@reference "tailwindcss"
+
+.active {
+    @apply bg-pink-500 
+}
+
+.disable {
+  @apply text-gray-500 cursor-not-allowed opacity-70;
+}

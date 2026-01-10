@@ -13,6 +13,7 @@ function AvatarForm({values, setFieldValue, errors, touched}) {
         }
         const url = URL.createObjectURL(values.avatar);
         setPreview(url)
+        
         return () => {
             URL.revokeObjectURL(values.avatar);
         }

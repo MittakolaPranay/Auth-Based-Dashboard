@@ -6,4 +6,5 @@ function ProductCard({thumbnail, title}) {
     </div>
 }
 
+
 export default ProductCard;

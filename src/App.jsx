@@ -5,6 +5,8 @@ import { RegisterPage, AdminPage, LoginPage, UserPage, UsersList, DeleteUser, Us
 
 import Avatar from './multi-parts/Avatar'
 import Pagination from './pagination/Pagination'
+import BackendPagination from './backend-pagination/BackendPagination'
+import Orders from './orders/Orders'
 
 
 
@@ -69,7 +71,7 @@ function App() {
     }
   ])
 
-  return <Pagination />
+  return <Orders />
 }
 
 export default App
